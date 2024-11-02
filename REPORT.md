@@ -74,3 +74,21 @@ c.score(nice_sentence)
 c.score(ugly_sentence)
 >>> 0.83343446
 ```
+
+
+### SpellingChecker
+
+```python
+
+wrong_spelling = "The bueatiful garden was filled with flours of every color, their fragrant scent drifted through the air, attracting bumblebees and other insectes. Each bloom was unique, showcasing a stunning array of petells that danced gently in the breeze. The vibrant yellows, reds, and purples created a visual symphony that captivated all who visited. Children ran around, playing hide-and-seek among the foliage, while adults relaxed on the benches, soaking in the serene ambiance. As the sun set, the sky turned a magnificent shade of oranj, completing the picturesque scene that would remain in their memmories for years to come."
+correct_spelling = "The beautiful garden was filled with flowers of every color, their fragrant scent drifted through the air, attracting bumblebees and other insects. Each bloom was unique, showcasing a stunning array of petals that danced gently in the breeze. The vibrant yellows, reds, and purples created a visual symphony that captivated all who visited. Children ran around, playing hide-and-seek among the foliage, while adults relaxed on the benches, soaking in the serene ambiance. As the sun set, the sky turned a magnificent shade of orange, completing the picturesque scene that would remain in their memories for years to come."
+
+s = SpellingChecker(weight = 5)
+
+s.score(wrong_spelling)
+>>> 0.3404121699482067
+
+s.score(correct_spelling)
+>>> 0.4101463806480264
+
+```
