@@ -35,4 +35,42 @@ r.compute_readability(gibberish_text)
 ```
 
 
-###
+### Grammer score
+```python
+ugly_sentence = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+nice_sentence = "The European Organization for Nuclear Research, known as CERN (/sɜːrn/; French pronunciation: [sɛʁn]; Organisation européenne pour la recherche nucléaire), is an intergovernmental organization that operates the largest particle physics laboratory in the world. Established in 1954, it is based in Meyrin, western suburb of Geneva, on the France–Switzerland border. It comprises 24 member states. Israel, admitted in 2013, is the only non-European full member. CERN is an official United Nations General Assembly observer."
+
+from cleanlab.lexical_analysis.grammar_quality import GrammarChecker
+gc = GrammarChecker()
+
+gc.check_grammar(ugly_sentence)
+>>> 0.014834205933682374
+
+gc.check_grammar(nice_sentence)
+>>> 0.030710172744721688
+```
+
+### Coherence
+
+```python
+ugly_sentence = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+nice_sentence = "The European Organization for Nuclear Research, known as CERN (/sɜːrn/; French pronunciation: [sɛʁn]; Organisation européenne pour la recherche nucléaire), is an intergovernmental organization that operates the largest particle physics laboratory in the world. Established in 1954, it is based in Meyrin, western suburb of Geneva, on the France–Switzerland border. It comprises 24 member states. Israel, admitted in 2013, is the only non-European full member. CERN is an official United Nations General Assembly observer."
+
+
+from cleanlab.lexical_analysis.coherence import GensimCoherence
+from cleanlab.lexical_analysis.coherence import Coherence
+c = Coherence()
+g = GensimCoherence()
+
+g.score(nice_sentence)
+>>>0.9148681274464294
+
+g.score(ugly_sentence)
+>>> 0.821032320139112
+
+c.score(nice_sentence)
+>>> 0.8922893
+
+c.score(ugly_sentence)
+>>> 0.83343446
+```
