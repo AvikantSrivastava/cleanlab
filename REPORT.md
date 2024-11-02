@@ -90,5 +90,13 @@ s.score(wrong_spelling)
 
 s.score(correct_spelling)
 >>> 0.4101463806480264
-
 ```
+
+
+
+## Limitations and score of improvement
+1. The algorithms that I used for calculating lexical score can be significantly improved via more research, re formulation of heuristic approach or simply by fine tuning or training transformer based models with more data
+2. This `lexical_analysis` submodule could have been be well integrated with the `classification.CleanLearning` class, to automatically eliminate text examples if they are not of good quality.
+3. Allow users to bring their own models, make the submodule plug and play by enabling users tp override of model names.
+4. Instead of using transformer models directly look into classical NLP based lexical analysis approach, that can significantly improve the processing time and make the package scalable.
+5. Add test cases and examples for the `lexical_analysis` submodule.
